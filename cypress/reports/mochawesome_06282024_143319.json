@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-06-28T11:33:17.669Z",
+    "end": "2024-06-28T11:33:19.307Z",
+    "duration": 1638,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "7ad50898-6ad9-4e32-b0e1-244d7392617b",
+      "title": "",
+      "fullFile": "cypress/e2e/apiquiz/test.js",
+      "file": "cypress/e2e/apiquiz/test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "e981dd59-c989-4a79-8f8c-53e6ce2b9764",
+          "title": "Add new device using API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should add a new device and validate the response",
+              "fullTitle": "Add new device using API should add a new device and validate the response",
+              "timedOut": null,
+              "duration": 1601,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: apiEndpoint,\n  body: newDevicePayload,\n  headers: {\n    \"Content-Type\": \"application/json\"\n  }\n}).then((response) => {\n  cy.log(\"Request URL:\", apiEndpoint);\n  cy.log(\"Request Payload:\", newDevicePayload);\n  cy.log(\"Response:\", response);\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property(\"id\");\n  expect(response.body).to.have.property(\"name\", newDevicePayload.name);\n  expect(response.body).to.have.property(\"createdAt\");\n  expect(response.body.data).to.deep.equal(newDevicePayload.data);\n  expect(response.body.id).to.not.be.null;\n  expect(response.body.createdAt).to.not.be.null;\n  expect(response.body).to.have.property(\"data\");\n  expect(response.body.data).to.have.property(\"year\", newDevicePayload.data.year);\n  expect(response.body.data).to.have.property(\"price\", newDevicePayload.data.price);\n  expect(response.body.data).to.have.property(\"CPU model\", newDevicePayload.data[\"CPU model\"]);\n  expect(response.body.data).to.have.property(\"Hard disk size\", newDevicePayload.data[\"Hard disk size\"]);\n});",
+              "err": {},
+              "uuid": "d0bbc4a3-32a5-4d58-bc50-ea245e8723fe",
+              "parentUUID": "e981dd59-c989-4a79-8f8c-53e6ce2b9764",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "d0bbc4a3-32a5-4d58-bc50-ea245e8723fe"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1601,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-07-04T17:50:43.677Z",
+    "end": "2024-07-04T17:50:44.163Z",
+    "duration": 486,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "895bd374-9917-4258-8c5a-3ccccac64d3e",
+      "title": "",
+      "fullFile": "cypress/e2e/apiquiz/put.js",
+      "file": "cypress/e2e/apiquiz/put.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "105f4c67-5962-463b-8b96-8a85b3e76172",
+          "title": "API Test for PUT /users/2",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should update the user data",
+              "fullTitle": "API Test for PUT /users/2 should update the user data",
+              "timedOut": null,
+              "duration": 455,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const updatedUser = {\n  name: \"Jane Doe\",\n  job: \"Software Developer\"\n};\ncy.request({\n  method: \"PUT\",\n  url: \"https://reqres.in/api/users/2\",\n  body: updatedUser,\n  headers: {\n    \"Content-Type\": \"application/json\"\n  }\n}).then((response) => {\n  expect(response.status).to.eq(200);\n  expect(response.body).to.have.property(\"name\", updatedUser.name);\n  expect(response.body).to.have.property(\"job\", updatedUser.job);\n  expect(response.body).to.have.property(\"updatedAt\").and.be.a(\"string\");\n});",
+              "err": {},
+              "uuid": "1c927a5d-7b21-4ab2-b934-c2067add0f00",
+              "parentUUID": "105f4c67-5962-463b-8b96-8a85b3e76172",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "1c927a5d-7b21-4ab2-b934-c2067add0f00"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 455,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "timestamp": "mmddyyyy_HHMMss"
+      },
+      "version": "6.2.0"
+    }
+  }
+}
